@@ -113,6 +113,8 @@ def logout(request):
 
 # cart product add
 def cart(request):
+    if 'user' not in request.session:
+        return redirect("login")
     email = request.session['user']
     obj = Register.objects.get(email=email)
     obj1 = Cart.objects.filter(user_id=obj.id, status=False)
