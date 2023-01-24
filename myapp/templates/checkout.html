@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+
+
+        <!--Header end--> 
+    </div>
+    <!--organicfood wrapper end-->
+
+    <!--breadcrumb area start-->
+    <div class="breadcrumb_container ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="{% url 'index' %}">Home ></a>
+                            </li>
+                            <li>checkout</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumb area end-->
+
+
+    <!--Checkout page section-->
+    <div class="Checkout_page_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="customer-login mb-40">
+                        <h3>
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            Returning customer?
+                            <a class="Returning" href="#" data-toggle="collapse" data-target="#Returning_customer"
+                                aria-expanded="true">Click here to login</a>
+
+                        </h3>
+                        <div id="Returning_customer" class="collapse" data-parent="#accordion">
+                            <div class="card-bodyfive">
+                                <div class="col-12">
+                                    <p>Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet
+                                        ipsum luctus..</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <form action="#">
+                                        <div class="Returning_cart_body mb-20">
+                                            <label for="b_names">Username or email <span>*</span></label>
+                                            <input id="b_names" type="text">
+                                        </div>
+                                        <div class="Returning_cart_body mb-20">
+                                            <label for="names">Password <span>*</span></label>
+                                            <input id="names" type="text">
+                                        </div>
+                                        <div class="Returning_cart_body returning_three login mb-20">
+                                            <input value="Login" type="submit">
+                                            <label for="remember-me-box">
+                                                <input id="remember-me-box" type="checkbox">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <a href="#">Lost your password?</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-form">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <form action="/checkout/" method="POST">
+                            {% csrf_token %}
+                            <h3>Billing Details</h3>
+                            <div class="row">
+                                <div class="col-12 mb-30">
+                                    <label for="c_country">Country <span class="required">*</span></label>
+                                    <select id="c_country">
+                                        <!-- <option value="1">Select a country</option>
+                                        <option value="2">bangladesh</option>
+                                        <option value="3">Algeria</option>
+                                        <option value="4">Afghanistan</option>
+                                        <option value="5">Ghana</option>
+                                        <option value="6">Albania</option>
+                                        <option value="7">Bahrain</option>
+                                        <option value="8">Colombia</option>
+                                        <option value="9">Dominican Republic</option> -->
+                                         <option value="10">India</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label for="b_f_name">First Name <span>*</span></label>
+                                    <input name="first_name" type="text">
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label for="b_name">Last Name <span>*</span></label>
+                                    <input name="last_name" type="text">
+                                </div>
+                               
+                                <div class="col-12 mb-30">
+                                    <label>Address <span>*</span></label>
+                                    <input placeholder="Street address"  name="address" type="text">
+                                </div> 
+                                {% comment %} <div class="col-12 mb-30">
+                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">
+                                </div> {% endcomment %}
+                                <div class="col-12 mb-30">
+                                    <label for="b_city">Town / City <span>*</span></label>
+                                    <input name="city" placeholder="Town / City" type="text">
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label for="f_name">State<span>*</span></label>
+                                    <input name="state" type="text">
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label for="b_zip">Postcode / Zip <span>*</span></label>
+                                    <input placeholder="Postcode / Zip" name="postcode" type="text">
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label for="b_email">Email Address <span>*</span></label>
+                                    <input name="email" type="text">
+                                </div>
+                                <div class="col-lg-6 mb-30">
+                                    <label>Phone <span>*</span></label>
+                                    <input placeholder="Phone Number" name="phone" type="text">
+                                </div>
+                                 <div class="order-button">
+                                    <button type="submit">submit</button>
+                                </div>
+                            
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <form action="/myorder/" method="POST">
+                            {% csrf_token %}
+                        <div class="coupon-form-two mb-30">
+                            <h3>SELECT YOUR ADDRESS</h3>
+                            <p>make sure your address is currect</p>
+                            <div class="order-table table-responsive mb-30">
+                                <table title="Address">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="product-total">city</th>
+                                            <th class="product-total">ADDRESS</th>
+                                            <th class="product-name">State</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for a in address %}
+                                        <tr>
+                                            <td class="product-name"><ADDRESS>{{a.address}}</ADDRESS></td>
+                                            
+                                            <td class="amount"> {{a.city}}</td> <hr>
+                                            <td class="amount"> {{a.state}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                         {% for a in address %}
+                                        <tr>
+                                            <th>Select {{a.id}} address</th>
+                                            <td> <input type="radio" value="{{a.id}}" name="ADDRESS">
+                                        </tr>
+                                        {% endfor %}
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="order-wrapper">
+                            <h3>Your order</h3>
+                            <div class="order-table table-responsive mb-30">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in cart_product %}
+                                        <tr>
+                                            <td class="product-name">{{i.prod_name}}</td>
+                                            <td class="amount"> ₹{{i.price}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                        <tr>
+                                            <td class="product-name"> shipping charge <strong> </strong></td>
+                                            <td class="amount"> ₹50.00</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Cart Subtotal</th>
+                                            <td>₹{{total}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th> Subtotal + Shipping charge = Order Total </th>
+                                            <td><strong>₹{{shipping}}</strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="payment-method">
+                                {% comment %} <div class="panel-default">
+                                    <label class="righ_10" data-toggle="collapse" data-target="#collapsethree"
+                                        aria-controls="collapseOne">Direct Bank Transfe</label>
+
+                                    <div id="collapsethree" class="collapse" data-parent="#accordion">
+                                        <div class="card-body2">
+                                            <p>Make your payment directly into our bank account. Please use your Order
+                                                ID as the payment reference. Your order won’t be shipped until the funds
+                                                have cleared in our account.</p>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                {% comment %} <div class="panel-default">
+                                    <label class="righ_10" data-toggle="collapse" data-target="#collapsefour"
+                                        aria-controls="collapseOne">Cheque Payment</label>
+
+                                    <div id="collapsefour" class="collapse" data-parent="#accordion">
+                                        <div class="card-body2">
+                                            <p>Make your payment directly into our bank account. Please use your Order
+                                                ID as the payment reference. Your order won’t be shipped until the funds
+                                                have cleared in our account.</p>
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                <div class="panel-default">
+                                    <label class="righ_10" data-toggle="collapse" data-target="#collapsefive"
+                                        aria-controls="collapseOne"> PAYTM </label>
+
+                                    <div id="collapsefive" class="collapse" data-parent="#accordion">
+                                        <div class="card-body2">
+                                            <p>Make your payment directly into our bank account.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-button">
+                                    <button type="submit">Place order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

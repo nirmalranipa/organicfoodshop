@@ -1,0 +1,423 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OrganicFood</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/assets/img/favicon.png' %}">
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/chosen.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/meanmenu.min.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/bundle.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/assets/css/responsive.css' %}">
+    <script src="{% static '/assets/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+
+    <!--organicfood wrapper start-->
+    <div class="organic_food_wrapper">
+        <!--Header start-->
+        <header class="header sticky-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header_wrapper_inner">
+
+                            <div class="logo col-xs-12">
+                                <a href="{% url 'index' %}">
+                                    <img src="{% static '/assets/img/logo/logo.png' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="main_menu_inner">
+                                <div class="menu">
+                                    <nav>
+                                        <ul>
+
+                                            <li><a href="{% url 'index' %}">Home </a> </li>
+                                            <li><a href="{% url 'about' %}">about us </a> </li>
+                                            <li><a href="{% url 'shop' %}">shop</a> </li>
+                                            <li><a href="{% url 'blog' %}">Blog </a></li>
+                                            <li><a href="{% url 'contact' %}">Contact </a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="mobile-menu d-lg-none">
+                                    <nav>
+                                        <ul>
+                                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                            <li><a href="{% url 'about' %}">about us </a></li>
+                                            <li><a href="{% url 'shop' %}">shop</a></li>
+                                            <li><a href="{% url 'blog' %}">Blog </a></li>
+                                            <li><a href="{% url 'contact' %}">Contact </a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="header_right_info d-flex">
+                                <div class="mini__cart">
+                                    <div class="mini_cart_inner">
+                                        <div class="cart_icon">
+                                            <a href="{% url 'cart' %}">
+                                                <span class="cart_icon_inner">
+                                                    <i class="ion-android-cart"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header_account">
+                                    <div class="account_inner">
+                                        <a href="#"><i class="ion-gear-b"></i></a>
+                                    </div>
+                                    <div class="content-setting-dropdown">
+                                        <div class="language-selector-wrapper">
+                                            <div class="user_info_top">
+                                                <ul>
+                                                    <li><a href="{% url 'myaccount' %}">my account</a></li>
+                                                    {% if request.session.user %}
+                                                    <li><a href="{% url 'myorder' %}">My Order</a></li>
+                                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                    {% else %}
+                                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                                    <li><a href="{% url 'login' %}">Sign in</a></li>
+                                                    {% endif %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--Header end-->
+    </div>
+    <div class="breadcrumb_container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="{% url 'index' %}">Home ></a>
+                            </li>
+                            <li>shop</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="organic_food_wrapper">
+
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="categories_banner">
+                <div class="categories_banner_inner">
+                    <img src="{% static '/assets/img/banner/shop.jpg' %}" alt="">
+                </div>
+                <h3>SHOP</h3>
+            </div>
+            <div class="tab_product_wrapper">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="shop_active">
+                        <div class="row">
+                            {% for i in prod %}
+                            <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6">
+                                <div class="single__product">
+                                    <div class="single_product__inner">                            
+                                        <div class="product_img">
+                                            <a href="{% url 'productdetails' %}?cid={{i.id}}" title="Product-Details">
+                                                <img src="{{i.product_image.url}}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="product__content text-center">
+                                            <div class="produc_desc_info">
+                                                <div class="product_title">
+                                                    <h4><a href="{% url 'productdetails' %}">{{i.subcat_name}}</a></h4>
+                                                </div>
+                                                <div class="product_price">
+                                                    <p>₹{{i.price}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="product__hover">
+                                                <ul>
+                                                    <li><a href="/add_to_cart/{{i.id}}"><i class="ion-android-cart"
+                                                                title="Buy Now"></i></a></li>
+                                                    <li><a class="cart-fore" href="my_modal={{i.id}}"
+                                                            data-toggle="modal" data-target="#my_modal{{i.id}}"
+                                                            title="Quick View"><i class="ion-android-open"></i></a></li>
+
+                                                    <li><a href="{% url 'productdetails' %}?cid={{i.id}}"
+                                                            title="Product-Details"><i class="ion-clipboard"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+    <footer class="footer footer_about pt-90">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-xs-12">
+                    <!--Single Footer-->
+                    <div class="single_footer widget">
+                        <div class="single_footer_widget_inner">
+                            <div class="footer_logo">
+                                <a href="#"><img src="{% static 'assets/img/logo/logo_footer.png' %}" alt=""></a>
+                            </div>
+                            <div class="footer_content">
+                                <p>Address: Nirant Chokdi, Vastral, Ahmedabad, Gujarat - INDIA.</p>
+                                <p>Phone: +(91)75738 03684</p>
+                                <p>Mobile: +(91)96248 89080</p>
+                                <p>Email: organicfoodshop2020@gmail.com</p>
+                            </div>
+                            <div class="footer_social">
+                                <h4>Get in Touch:</h4>
+                                <div class="footer_social_icon">
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Single Footer-->
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="footer_menu_list d-flex justify-content-between">
+                        <!--Single Footer-->
+                        <div class="single_footer widget">
+                            <div class="single_footer_widget_inner">
+                                <div class="footer_title">
+                                    <h2>Products</h2>
+                                </div>
+                                <div class="footer_menu">
+                                    <ul>
+                                        <li><a href="{% url 'shop' %}"> New products</a></li>
+                                        <!-- <li><a href="#"> Best sales</a></li> -->
+                                        <li><a href="{% url 'shop' %}">Fruits</a></li>
+                                        <li><a href="{% url 'shop' %}">Fruits Juice</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Single footer end-->
+                        <!--Single footer start-->
+                        <div class="single_footer widget">
+                            <div class="single_footer_widget_inner">
+                                <div class="footer_title">
+                                    <h2>Login</h2>
+                                </div>
+                                <div class="footer_menu">
+                                    <ul>
+                                        <li><a href="{% url 'login' %}"> Login</a></li>
+                                        <li><a href="{% url 'contact' %}">Sitemap</a></li>
+                                        <li><a href="{% url 'contact' %}"> Contact us</a></li>
+                                        <li><a href="{% url 'myaccount' %}"> My account</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Single Footer end-->
+                        <!--Single footer start-->
+                        <div class="single_footer widget">
+                            <div class="single_footer_widget_inner">
+                                <div class="footer_title">
+                                    <h2> Your account </h2>
+                                </div>
+                                <div class="footer_menu">
+                                    <ul>
+                                        <li><a href="{% url 'login' %}"> Login</a></li>
+                                        <li><a href="{% url 'myaccount' %}">Personal info</a></li>
+                                        <li><a href="{% url 'cart' %}"> Orders</a></li>
+                                        <li><a href="{% url 'contact' %}"> Addresses</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Single Footer end-->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-xs-12">
+                    <div class="footer_title">
+                        <h2> Write Your Thinks </h2>
+                    </div>
+                    <div class="footer_news_letter">
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <div class="newsletter_form">
+                            <form action="#">
+                                <input type="email" required placeholder="Your Email Address">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="copyright_text">
+                            <p>Copyright 2021 <a href="#">Organicfood</a>. All Rights Reserved</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <div class="footer_mastercard text-right">
+                            <a href="#"><img src="{% static 'assets/img/brand/payment.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- footer end -->
+
+
+    <!-- modal area start -->
+    {% for q in prod %}
+    <div class="modal fade" id="my_modal{{q.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body shop">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="product-flags madal">
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="imgeone" role="tabpanel">
+                                            <div class="product_tab_img">
+                                                <a href="#"><img src="{{q.product_image.url}}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="products_tab_button  modals">
+                                        <ul class="nav product_navactive" role="tablist">
+                                            <li>
+                                                <a class="nav-link active" data-toggle="tab" href="#imgeone" role="tab"
+                                                    aria-controls="imgeone" aria-selected="false"><img
+                                                        src="{{q.product_image.url}}" alt=""></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-12">
+                                <div class="modal_right">
+                                    <div class="shop_reviews">
+                                        <div class="demo_product">
+                                            <h2>{{q.product_name}}</h2>
+                                        </div>
+                                        <div class="current_price">
+                                            <span class="regular_price">₹{{q.price}}</span>
+                                        </div>
+                                        <div class="product_information product_modal">
+                                            <div id="product_modal_content">
+                                                
+                                            </div>
+                                            <div class="product_variants">
+
+                                                <div class="quickview_plus_minus">
+                                                    <span class="control_label">Quantity In Kg</span>
+                                                    <span class="control_label">1 litter juice-bottle</span>
+                                                    <div class="quickview_plus_minus_inner">
+                                                        <div class="cart-plus-minus">
+                                                            <input type="text" value="02" name="qtybutton"
+                                                                class="cart-plus-minus-box">
+                                                        </div>
+                                                        <div class="add_button add_modal">
+                                                            <ul>
+                                                                <li><a href="/add_to_cart/{{q.id}}"><i
+                                                                            class="btn btn-success">Add_To_Cart</i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="cart_description">
+                                                    <p>{{q.description}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="social-share">
+                                    <h3>Share this product</h3>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- modal area end -->
+
+
+
+    <!-- all js here -->
+    <script src="{% static '/assets/js/vendor/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static '/assets/js/popper.js' %}"></script>
+    <script src="{% static '/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static '/assets/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static '/assets/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static '/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static '/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static '/assets/js/ajax-mail.js' %}"></script>
+    <script src="{% static '/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/assets/js/plugins.js' %}"></script>
+    <script src="{% static '/assets/js/main.js' %}"></script>
+</body>
+
+</html>

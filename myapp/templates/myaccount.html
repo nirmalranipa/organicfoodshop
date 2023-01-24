@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+</div>
+<!--organicfood wrapper end-->
+
+<!--breadcrumb area start-->
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a> ></li>
+                        <li>My account</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+
+<!-- Start Maincontent  -->
+<section class="main-content-area myaccount ptb-100">
+    <div class="container">
+        <div class="account-dashboard">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <!-- Nav tabs -->
+                    <ul role="tablist" class="nav flex-column dashboard-list">
+                        <li><a href="#dashboard" data-toggle="tab" class="nav-link active">Dashboard</a></li>
+                        <li><a href="{% url 'login' %}" class="nav-link">logout</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard-content">
+                        <div class="tab-pane fade show active" id="dashboard">
+                            <h3>Dashboard </h3>
+                            <p>From your account dashboard. you can easily check &amp; view your recent
+                                    orders, manage your shipping and billing addresses and 
+                                    Edit your password and account details.</p>
+                        </div>
+                        <div class="tab-pane fade" id="orders">
+                            <h3>Orders</h3>
+                            <div class="organic-table-area table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Total</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    {% for i in myorder %}
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-name"><a href="#">{{i.order_date}}</a></td>
+                                            <td class="product-price"><span class="amount">{{i.product}}</span></td>
+                                            <td class="product-subtotal">{{i.address.address}}
+                                                <strong>{{i.address.city}}</strong></td>
+                                            <td class="product-subtotal" style="color: yellow;">
+                                                <strong>{{i.order}}</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

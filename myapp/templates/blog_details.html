@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+
+</div>
+<!--organicfood wrapper end-->
+
+<!--breadcrumb area start-->
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home ></a>
+                        </li>
+                        <li>Blog Details</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+
+<!--blog details area start-->
+<div class="blog_details_area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-12">
+                <div class="blog_details_info">
+                    <div class="blog_meta">
+                        <ul>
+                            <li> Natural OrganicFood</li>
+                            <li>May 01, 2021</li>
+                        </ul>
+                    </div>
+                    <h3>What is OrganicFood How to use for organic </h3>
+                    <div class="blog_details_img">
+                        <img src="{% static '/assets/img/blog/3.jpg' %}" alt="">
+                    </div>
+                    <div class="post_excerpt">
+                        <p>You have most likely come across the term “natural food,” and you may be wondering what it is
+                            and how you can add more of it to your life. Natural food choices are those that have
+                            endured a minimum amount of processing and do not contain an abundance of preservatives. A
+                            diet based around natural foods may contain options like whole grains, vegetables, fruits,
+                            beans, nuts, seeds, and lean meats. Fruits and vegetables are key in a natural food diet,
+                            and with good reason; they’ve been shown to lower blood pressure, prevent some types of
+                            cancer, and decrease the risk of stroke and heart disease. An easy way to consume more
+                            natural foods is to steer clear of processed, refined, and packaged food products, and try
+                            to eat foods in their original state.
+
+                            Even with all of the documentaries and transformative stories of people who have improved
+                            their health through natural food in recent years, knowing where to get started isn’t easy.
+                            Whether you want to learn about reading labels, preparing nutrient-dense food, or following
+                            a specific diet, we’ve rounded up the best natural food blogs to keep you inspired. From
+                            bloggers and nutritionists to chefs and home cooks, these men and women have done the work
+                            for you. All you need to do now is soak in the information and take the first step on your
+                            natural food journey. </p>
+
+                        <p>Organic food, fresh or processed food produced by organic farming methods. Organic food is
+                            grown without the use of synthetic chemicals, such as human-made pesticides and fertilizers,
+                            and does not contain genetically modified organisms (GMOs). Organic foods include fresh
+                            produce, meats, and dairy products as well as processed foods such as crackers, drinks, and
+                            frozen meals. The market for organic food has grown significantly since the late 20th
+                            century, becoming a multibillion dollar industry with distinct production, processing,
+                            distribution, and retail systems.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

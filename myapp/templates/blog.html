@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+</div>
+<!--organicfood wrapper end-->
+
+<!--breadcrumb area start-->
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home ></a>
+                        </li>
+                        <li>Blog</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+
+<!--blog area start-->
+<div class="blog_list_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="single_blog_list">
+                    <div class="blog__thumb">
+                        <a href="{% url 'blog_details' %}"><img src="{% static '/assets/img/blog/1.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="post__content">
+                        <h3><a href="{% url 'blog_details' %}">Natural Organic Food </a>
+                        </h3>
+                        <ul>
+                            <li><a href="{% url 'blog_details' %}">Read More</a></li>
+                            <li class="post_date">May 01, 2021</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="single_blog_list">
+                    <div class="blog__thumb">
+                        <a href="{% url 'blog_details' %}"><img src="{% static '/assets/img/blog/2.jpg' %}"
+                                alt=""></a>
+                    </div>
+                    <div class="post__content">
+                        <h3><a href="{% url 'blog_details' %}">Organic Food Over the world Worth it</a></h3>
+                        <ul>
+                            <li><a href="{% url 'blog_details' %}">Read More</a></li>
+                            <li class="post_date">July 10, 2021</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="single_blog_list">
+                    <div class="blog__thumb">
+                        <a href="{% url 'blog_details' %}"><img src="{% static '/assets/img/blog/3.jpg' %}" alt=""></a>
+                    </div>
+                    <div class="post__content">
+                        <h3><a href="{% url 'blog_details' %}">Organic Environment.</a></h3>
+                        <ul>
+                            <li><a href="{% url 'blog_details' %}">Read More</a></li>
+                            <li class="post_date">July 10, 2018</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--blog area end-->
+
+{% endblock %}

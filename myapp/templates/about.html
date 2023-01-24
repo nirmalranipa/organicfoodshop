@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+
+</div>
+<!--organicfood wrapper end-->
+
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home ></a>
+                        </li>
+                        <li>About Us</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+
+
+<!--about section area start-->
+<div class="about_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 col-md-12 text-center">
+                <div class="about_section_one">
+                    <h2>Welcome To Organicfood Shop</h2>
+                    <p>Organic Food Shop works on the mission of ‘Healthy Food For Everyone’. Our aim is to excel
+                        through quality, consistency and constant innovation. We function as an effective and efficient
+                        bridge between Indian marginal farmers and buyers across the world who are seeking high-quality
+                        organic produce. An integrated approach is followed by us for delivering the best food for
+                        everyone. This approach begins from farmland and ends at the consumer’s plates. Also, we perform
+                        the forecasting of the customer needs, demands and investing in the best possible infrastructur
+                    </p>
+                </div>
+                <div class="about__store__btn">
+                    <a href="{% url 'contact' %}">contact us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--about section area end-->
+
+
+<!-- about area start-->
+<div class="about_chooseUs_area">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-xl-3 col-lg-12 col-md-12">
+                {% comment %} <div class="video__wrape__area" style="background-image:url(assets/img/banner/about1.jpg)">
+                    <div class="video__inner">
+                        <a class="video__trigger" href="https://www.youtube.com/watch?v=cDDWvj_q-o8"><i
+                                class="zmdi zmdi-play"></i></a>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+            <div class="col-xl-6 col-lg-12 col-md-12 " >
+                <div class="about_choose_content">
+                    <h3>Why Choose Us?</h3>
+                    <div class="choose_content_inner">
+                        <div class="single_choose_us">
+                            <div class="choose_us mb-50">
+                                <div class="choose_icone">
+                                    <i class="zmdi zmdi-favorite-outline"></i>
+                                </div>
+                                <div class="choose_details">
+                                    <h4>Free Shipping</h4>
+                                    <p>Free shipping on all order</p>
+                                </div>
+                            </div>
+                            <div class="choose_us">
+                                <div class="choose_icone">
+                                    <i class="zmdi zmdi-truck"></i>
+                                </div>
+                                <div class="choose_details">
+                                    <h4>Free Delivery</h4>
+                                    <p>Free delivery on order over 2000 </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_choose_us">
+                            <div class="choose_us  mb-50">
+                                <div class="choose_icone">
+                                    <i class="zmdi zmdi-refresh-alt"></i>
+                                </div>
+                                <div class="choose_details">
+                                    <h4>Money Back</h4>
+                                    <p>Money return back guarantee under 7 days</p>
+                                </div>
+                            </div>
+                            <div class="choose_us">
+                                <div class="choose_icone"><i class="zmdi zmdi-time"></i> </div>
+                                <div class="choose_details">
+                                    <h4>Support 24/7</h4>
+                                    <p>Customer complaints solve faster</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- about area end -->
+
+
+<!--about team area start-->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--testimonial area start-->
+<div class="about_testimonial_area mb-65"
+    style="background-image:url({% static '/assets/img/banner/testimonial4.jpg' %})">
+    <div class="about_testimonial_inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-12 col-md-12">
+                    <div class="testimonial___wrapper owl-carousel">
+                        <div class="single___testimonial text-center">
+                            <div class="testimonial__image ">
+                                <img src="{% static '/assets/img/banner/testi11.png' %}" alt="">
+                            </div>
+                            <div class="testimonial__details">
+                                <p>"My name is nirmal ranipa, and I will complete my bachelor in computer application
+                                    graduate from Gujarat University in a short time.”</p>
+                            </div>
+                            <div class="testimonial__info">
+                                <a href="#">Ranipa Nirmal</a>
+                                <span>-</span>
+                                <span>Director</span>
+                            </div>
+                        </div>
+                        <div class="single___testimonial text-center">
+                            <div class="testimonial__image">
+                                <img src="{% static '/assets/img/banner/testi22.png' %}" alt="">
+                            </div>
+                            <div class="testimonial__details">
+                                <p>"My name is ritesh panchal, and I will complete my bachelor in computer application
+                                    graduate from Gujarat University in a short time.”</p>
+                            </div>
+                            <div class="testimonial__info">
+                                <a href="#">Ritesh Panchal</a>
+                                <span>-</span>
+                                <span>Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--testimonial area end-->
+
+{% endblock %}

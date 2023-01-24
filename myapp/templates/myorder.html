@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+</div>
+<!--organicfood wrapper end-->
+
+<!--breadcrumb area start-->
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home ></a></li>
+                        <li>Cart</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+<div class="cart_main_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-name">Order date</th>
+                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-remove">Shopping Address</th>
+                                    <th class="product-remove">Order Status</th>
+                                </tr>
+                            </thead>
+                            {% for i in myorder %}
+                            <tbody>
+                                <tr>
+                                    <td class="product-name"><a href="#">{{i.order_date}}</a></td>
+                                    <td class="product-price"><span class="amount">{{i.product}}</span></td>
+                                    <td class="product-subtotal">{{i.address.address}}
+                                        <strong>{{i.address.city}}</strong></td>
+                                    <td class="product-subtotal" style="color: rgb(0, 209, 10);"><strong>{{i.order}}</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="row table-responsive_bottom">
+                        <div class="col-lg-7 col-sm-7 col-md-7">
+                            <div class="buttons-carts">
+                                <a href="/">Continue Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

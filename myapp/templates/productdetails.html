@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+
+<!--Header end-->
+</div>
+<!--breadcrumb area start-->
+<div class="breadcrumb_container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home ></a>
+                        </li>
+                        <li>Product details </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumb area end-->
+
+
+<!-- primary block area -->
+
+<div class="table_primary_block pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <div class="product-flags">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="tabone" role="tabpanel">
+                            <div class="product_tab_img">
+
+                                <a href="#"><img src="{{pid.product_image.url}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tabtwo" role="tabpanel">
+                            <div class="product_tab_img">
+                                <a href="#"><img src="{% static '/assets/img/cart/nav11.jpg' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tabthree" role="tabpanel">
+                            <div class="product_tab_img">
+                                <a href="#"><img src="{% static '/assets/img/cart/nav13.jpg' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12">
+                <div class="product__details_content">
+                    <div class="demo_product">
+                        <h2>{{pid.subcat_name}}</h2>
+                        <span class="control_label">Quantity In Kg.</span>
+                        <br>
+                        <span class="control_label">1 litter juice-bottle</span>
+                    </div>
+                    <div class="current_price">
+                        <span>₹{{pid.price}}</span>
+                    </div>
+                    <div class="product_information">
+                        <div id="product_description_short">
+                            <p>{{pid.description}}</p>
+                        </div>
+                        <div class="product_variants">
+
+                            <div class="quickview_plus_minus">
+
+                                <div class="quickview_plus_minus_inner">
+                                    <div class="add_button add_modal">
+                                                            <ul>
+                                                                <li><a href="/add_to_cart/{{pid.id}}"><i
+                                                                            class="btn btn-success">Add_To_Cart</i></a></li>
+                                                            </ul>
+                                                        </div>
+                                </div>
+                            </div>
+                            <div class="product-availability">
+                                <span id="availability">
+                                    <i class="zmdi zmdi-check"></i>
+                                    In stock
+                                </span>
+                            </div>
+                            <div class="social-sharing">
+                                <span>Share</span>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="block-reassurance">
+                                <ul>
+                                    <li>
+                                        <img src="{% static '/assets/img/cart/cart1.png' %}" alt="">
+                                        <span>Security policy </span>
+                                    </li>
+                                    <li>
+                                        <img src="{% static '/assets/img/cart/cart2.png' %}" alt="">
+                                        <span>Delivery policy </span>
+                                    </li>
+                                    <li>
+                                        <img src="{% static '/assets/img/cart/cart3.png' %}" alt="">
+                                        <span>Return policy </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
