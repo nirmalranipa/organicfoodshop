@@ -7,7 +7,7 @@ username: admin
 
 password: admin
 
-pip install all and run Program
+****pip install all Command****
 
 pip install asgiref
 
